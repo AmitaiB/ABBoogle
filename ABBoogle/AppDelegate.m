@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "ABBoogleCollectionViewController.h"
+#import "UIColor+FlatUI.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,20 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    ABBoogleCollectionViewController *booksViewController = [[ABBoogleCollectionViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:booksViewController];
+    UINavigationBar *navigationBar = navigationController.navigationBar;
+    navigationBar.barTintColor = [UIColor greenSeaColor];
+    navigationBar.barStyle = UIBarStyleBlackOpaque;
+    
+    self.window.rootViewController = navigationController;
+    self.window.backgroundColor = [UIColor cloudsColor];
+    [self.window makeKeyAndVisible];
+
+    
+    
     return YES;
 }
 
